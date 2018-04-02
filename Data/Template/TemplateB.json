@@ -1,0 +1,50 @@
+{
+	"FormID": "TemplateA",
+	"NumberofSentences": 9,
+	"Sentences": [{
+			"number": "1",
+			"sentence": "Come Here!",
+			"emotion": "Happy"
+		},
+		{
+			"number": "2",
+			"sentence": "Come Here!",
+			"emotion": "Sad"
+		},
+		{
+			"number": "3",
+			"sentence": "Come Here!",
+			"emotion": "Angry"
+		},
+		{
+			"number": "4",
+			"sentence": "Come Here!",
+			"emotion": "Shocked"
+		},
+		{
+			"number": "5",
+			"sentence": "Come Here!",
+			"emotion": "Neutral"
+		},
+		{
+			"number": "6",
+			"sentence": "Hi!",
+			"emotion": "Happy"
+		},
+		{
+			"number": "7",
+			"sentence": "Hi!",
+			"emotion": "Sad"
+		},
+		{
+			"number": "8",
+			"sentence": "Hi!",
+			"emotion": "Angry"
+		},
+		{
+			"number": "9",
+			"sentence": "Hi!",
+			"emotion": "Shocked"
+		}
+	]
+}
