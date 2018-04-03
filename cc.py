@@ -33,21 +33,21 @@ class CreateCorpus(Frame):
 	selTemplate = None
 	selSpeaker = None
 
-	def record_button(self, display, template, speaker, session, number):
+	def _record_button(self, display, template, speaker, session, number):
 		rec.record_audio(template, speaker, session, number)
 		plotter.show_waveplot(display, self.templateSelect[:-5], self.speakerSelect[:-5], self.session, self.counter, 0, 0)
 
-	def delete_button(self, template, speaker, session, number):
+	def _delete_button(self, template, speaker, session, number):
 		directory = os.path.join("Data", "Results", template, speaker, str(session))
 		file_name = os.path.join(directory, "".join((str(number),".wav")))
 		os.remove(file_name)
 
-	def play_button(self, template, speaker, session, number):
+	def _play_button(self, template, speaker, session, number):
 		directory = os.path.join("Data", "Results", template, speaker, str(session))
 		file_name = os.path.join(directory, "".join((str(number),".wav")))
 		winsound.PlaySound(file_name, winsound.SND_ALIAS)	
 
-	def prepare_lists(self):
+	def _prepare_lists(self):
 		path = os.path.join("Data", "Template")
 		self.templateList.clear()
 		self.templateList = os.listdir(path)
@@ -64,7 +64,7 @@ class CreateCorpus(Frame):
 		else:
 			self.session = 1
 
-	def load_template(self, template, speaker):
+	def _load_template(self, template, speaker):
 		self.templateSelect=template
 		self.speakerSelect=speaker
 		self.myDict = jsh.get_template(template)
@@ -79,12 +79,12 @@ class CreateCorpus(Frame):
 			self.session = 1
 		path=path=os.path.join("Data", "Results", template[:-5], speaker[:-5], str(self.session))
 		os.makedirs(path, exist_ok=True)
-		self.change_stuff()
+		self._change_stuff()
 		self.templateVar.set(template[:-5])
 		self.speakerVar.set(speaker[:-5])
 		self.sessionVar.set(str(self.session))
 
-	def change_stuff(self, button = None):
+	def _change_stuff(self, button = None):
 		self.counter = self.counter + 1
 		if self.counter >= len(self.senList)+1:
 			self.numberVar.set("Session Finished!")
@@ -98,7 +98,7 @@ class CreateCorpus(Frame):
 
 
 	def __init__(self, parent, controller):
-		self.prepare_lists()
+		self._prepare_lists()
 		ttk.Frame.__init__(self, parent)
 		imagebuttonHome = ImageTk.PhotoImage(Image.open("home.png"))
 		buttonHome = ttk.Button(self, style="parent.Option.TButton", image=imagebuttonHome)
@@ -120,7 +120,7 @@ class CreateCorpus(Frame):
 
 		imagebuttonSubmit = ImageTk.PhotoImage(Image.open("submit.png"))
 		buttonHome = ttk.Button(gridFrame, style="parent.Option.TButton", image=imagebuttonSubmit)
-		buttonHome.bind("<Button-1>", lambda eff: self.load_template(selTemplate.get(), selSpeaker.get()))
+		buttonHome.bind("<Button-1>", lambda eff: self._load_template(selTemplate.get(), selSpeaker.get()))
 		buttonHome.image = imagebuttonSubmit    
 		buttonHome.grid(row=1, column=4, columnspan=2)
 
@@ -190,17 +190,17 @@ class CreateCorpus(Frame):
 
 		imagebuttonRecord = ImageTk.PhotoImage(Image.open("button3.png"))#Change to apt. icon
 		buttonRec = ttk.Button(gridFrame, style="parent.Option.TButton", image=imagebuttonRecord)
-		buttonRec.bind("<Button-1>", lambda eff: self.record_button(plotFrame, self.templateSelect[:-5], self.speakerSelect[:-5], self.session, self.counter))
+		buttonRec.bind("<Button-1>", lambda eff: self._record_button(plotFrame, self.templateSelect[:-5], self.speakerSelect[:-5], self.session, self.counter))
 		buttonRec.image = imagebuttonRecord    
 		buttonRec.grid(row=2, column=10, columnspan=2, rowspan=3)
 
-		playButton = ttk.Button(gridFrame, text="Play", command = lambda: self.play_button(self.templateSelect[:-5], self.speakerSelect[:-5], self.session, self.counter))
+		playButton = ttk.Button(gridFrame, text="Play", command = lambda: self._play_button(self.templateSelect[:-5], self.speakerSelect[:-5], self.session, self.counter))
 		playButton.grid(row=7, column=10, sticky=W)
 
-		acceptButton = ttk.Button(gridFrame, text="Accept", command = lambda : self.change_stuff())
+		acceptButton = ttk.Button(gridFrame, text="Accept", command = lambda : self._change_stuff())
 		acceptButton.grid(row=8, column=10, sticky=W)
 
-		deleteButton = ttk.Button(gridFrame, text="Delete", command = lambda : self.delete_button(self.templateSelect[:-5], self.speakerSelect[:-5], self.session, self.counter))
+		deleteButton = ttk.Button(gridFrame, text="Delete", command = lambda : self._delete_button(self.templateSelect[:-5], self.speakerSelect[:-5], self.session, self.counter))
 		deleteButton.grid(row=9, column=10, sticky=W)
 		#playButton = ttk.Button(gridFrame, text="Accept", style="parent.Option.TLabel", self.play)
 
