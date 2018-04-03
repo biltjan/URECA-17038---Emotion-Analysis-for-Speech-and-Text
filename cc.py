@@ -188,7 +188,7 @@ class CreateCorpus(Frame):
 
 		Label(plotFrame).grid()
 
-		imagebuttonRecord = ImageTk.PhotoImage(Image.open("button3.png"))#nanti ganti
+		imagebuttonRecord = ImageTk.PhotoImage(Image.open("button3.png"))#Change to apt. icon
 		buttonRec = ttk.Button(gridFrame, style="parent.Option.TButton", image=imagebuttonRecord)
 		buttonRec.bind("<Button-1>", lambda eff: self._record_button(plotFrame, self.templateSelect[:-5], self.speakerSelect[:-5], self.session, self.counter))
 		buttonRec.image = imagebuttonRecord    
