@@ -44,23 +44,17 @@ class HomePage(Frame):
         labelTitle = ttk.Label(self, text = "Please choose an option:", style = "Important.TLabel")
         labelTitle.pack(side = "top", fill="x")
 
-        labelAdmin = ttk.Label(self, text = "Admin Menu:", style = "Important.TLabel")
-        labelAdmin.pack(side = "top", fill="x")
-
-        buttonImage1 = ImageTk.PhotoImage(Image.open("button3.png"))#Change to apt. icon
+        buttonImage1 = ImageTk.PhotoImage(Image.open("button3.png"))#nanti ganti
         buttonSelect1 = ttk.Button(self,text="Create Template", style="Option.TButton", image=buttonImage1, compound=LEFT)
-        buttonSelect1.bind("<Button-1>", lambda eff: controller.show_frame("CreateCorpus"))#Change to apt. icon
+        buttonSelect1.bind("<Button-1>", lambda eff: controller.show_frame("CreateCorpus"))#nanti ganti
         buttonSelect1.image = buttonImage1    
         buttonSelect1.pack(fill="x")
 
-        buttonImage2 = ImageTk.PhotoImage(Image.open("button3.png"))#Change to apt. icon
+        buttonImage2 = ImageTk.PhotoImage(Image.open("button3.png"))#nanti ganti
         buttonSelect2 = ttk.Button(self,text="Create User", style="Option.TButton", image=buttonImage2, compound=LEFT)
-        buttonSelect2.bind("<Button-1>", lambda eff: controller.show_frame("CreateCorpus"))#Change to apt. icon
+        buttonSelect2.bind("<Button-1>", lambda eff: controller.show_frame("CreateCorpus"))#nanti ganti
         buttonSelect2.image = buttonImage2    
         buttonSelect2.pack(fill="x")
-
-        labelAdmin = ttk.Label(self, text = "User Menu:", style = "Important.TLabel")
-        labelAdmin.pack(side = "top", fill="x")
 
         buttonImage3 = ImageTk.PhotoImage(Image.open("button3.png"))
         buttonSelect3 = ttk.Button(self,text="Create Corpus", style="Option.TButton", image=buttonImage3, compound=LEFT)
@@ -68,15 +62,15 @@ class HomePage(Frame):
         buttonSelect3.image = buttonImage3
         buttonSelect3.pack(fill="x")
 
-        buttonImage4 = ImageTk.PhotoImage(Image.open("button3.png"))#Change to apt. icon
+        buttonImage4 = ImageTk.PhotoImage(Image.open("button3.png"))#nanti ganti
         buttonSelect4 = ttk.Button(self,text="View Corpus", style="Option.TButton", image=buttonImage4, compound=LEFT)
         buttonSelect4.bind("<Button-1>", lambda eff: controller.show_frame("ViewCorpus"))
         buttonSelect4.image = buttonImage4    
         buttonSelect4.pack(fill="x")
 
-        buttonImage5 = ImageTk.PhotoImage(Image.open("button3.png"))#Change to apt. icon
+        buttonImage5 = ImageTk.PhotoImage(Image.open("button3.png"))#nanti ganti
         buttonSelect5 = ttk.Button(self,text="Settings", style="Option.TButton", image=buttonImage5, compound=LEFT)
-        buttonSelect5.bind("<Button-1>", lambda eff: controller.show_frame("CreateCorpus"))#Change to apt. icon
+        buttonSelect5.bind("<Button-1>", lambda eff: controller.show_frame("CreateCorpus"))#nanti ganti
         buttonSelect5.image = buttonImage5    
         buttonSelect5.pack(fill="x")
 
